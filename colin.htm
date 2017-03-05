@@ -223,9 +223,16 @@
 				console.log( fileId );
 				console.log("Updating restricted permissions on file.");
 				// console.log(pickedFile);
+				var newLabels = {
+					hidden:false,
+					restricted:true,
+					starred:false,
+					trashed:false,
+					viewed:true
+				}
 				gapi.client.drive.files.update({
 				  'fileId': fileId,
-				  'labels.restricted': true
+				  'labels': newLabels
 				}).execute(function(b) { 
 					console.log( b );
 					window.opener.postMessage(pickedFile, '*');
