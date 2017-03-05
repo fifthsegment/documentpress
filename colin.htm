@@ -220,12 +220,14 @@
 			  'fileId': fileId,
 			  'resource': resource
 			}).execute(function(a) { 
+				console.log( fileId );
 				console.log("Updating restricted permissions on file.");
 				// console.log(pickedFile);
 				gapi.client.drive.files.update({
 				  'fileId': fileId,
 				  'labels.restricted': true
 				}).execute(function(b) { 
+					console.log( b );
 					window.opener.postMessage(pickedFile, '*');
 					window.close();
 				})
