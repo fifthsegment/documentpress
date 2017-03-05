@@ -209,6 +209,7 @@
       }
 
       function makePublic(fileId) {
+      	console.log("Making file public");
 	  		var resource = {
 			  'value': 'default',
 			  'type': 'anyone',
@@ -219,6 +220,7 @@
 			  'fileId': fileId,
 			  'resource': resource
 			}).execute(function(a) { 
+				console.log("Updating restricted permissions on file.");
 				// console.log(pickedFile);
 				gapi.client.drive.files.update({
 				  'fileId': fileId,
